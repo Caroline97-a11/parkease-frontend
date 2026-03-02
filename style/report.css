@@ -1,0 +1,16 @@
+body {
+    background-color: #f4f6f9;
+}
+
+.metric-card {
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.card {
+    border-radius: 10px;
+}
+
+footer {
+    color: #777;
+}

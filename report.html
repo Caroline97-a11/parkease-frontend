@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ParkEase - Daily Reports</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style/report.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<nav class="navbar navbar-light bg-white shadow-sm px-4 d-flex">
+    <div>
+        <img src="images/logo.png" alt="" width="80">
+        <h5 class="mb-0 fw-bold text-primary">ParkEase</h5>
+        <small class="text-muted">DAILY REPORTS</small>
+    </div>
+    <div>
+        <button class="btn btn-outline-secondary me-2">Download PDF</button>
+        <button class="btn btn-primary">Export CSV</button>
+    </div>
+</nav>
+
+<div class="container my-4">
+
+    <!-- REVENUE OVERVIEW -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>Revenue Overview</h4>
+        <div class="date-selector">
+            <button class="btn btn-light" onclick="changeDate(-1)">←</button>
+            <span id="selectedDate" class="mx-3 fw-bold"></span>
+            <button class="btn btn-light" onclick="changeDate(1)">→</button>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+
+        <div class="col-md-4">
+            <div class="card metric-card">
+                <div class="card-body">
+                    <h6>Parking Revenue</h6>
+                    <h4>$1,240.00</h4>
+                    <small class="text-success">+12% vs yesterday</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card metric-card">
+                <div class="card-body">
+                    <h6>Tyre Clinic</h6>
+                    <h4>$450.00</h4>
+                    <small class="text-success">+5.4%</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card metric-card">
+                <div class="card-body">
+                    <h6>Battery Hire</h6>
+                    <h4>$180.00</h4>
+                    <small class="text-danger">-2.1%</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TABLE -->
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <strong>All Signed-out Vehicles</strong>
+            <input type="text" id="searchInput" class="form-control w-25"
+                   placeholder="Search plate or receipt..."
+                   onkeyup="filterTable()">
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover mb-0" id="vehicleTable">
+                <thead class="table-light">
+                <tr>
+                    <th>Receipt #</th>
+                    <th>Plate #</th>
+                    <th>In-Time</th>
+                    <th>Out-Time</th>
+                    <th>Duration</th>
+                    <th>Fee</th>
+                </tr>
+                </thead>
+                <tbody id="tableBody">
+                   <tr>
+                            <td>10:45 AM</td>
+                            <td><strong>UBD 123X</strong></td>
+                            <td>Sedan</td>
+                            <td><span class="badge bg-success-subtle text-success">Parked</span></td>
+                            <td><i class="bi bi-three-dots-vertical"></i></td>
+                        </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between align-items-center">
+            <div>
+                <strong>Daily Grand Total:</strong>
+                <span id="grandTotal" class="text-primary fw-bold"></span>
+            </div>
+
+            <div>
+                <button class="btn btn-sm btn-light" onclick="changePage(-1)">Previous</button>
+                <span id="paginationNumbers"></span>
+                <button class="btn btn-sm btn-light" onclick="changePage(1)">Next</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="text-center mt-5 mb-3">
+    <small class="fw-bold">ADMIN CONTROL PANEL</small><br>
+    <small>© 2026 ParkEase Intelligent Systems. All financial data is encrypted and audited.</small>
+</footer>
+
+<script src="admin.js"></script>
+</body>
+</html>
