@@ -1,268 +1,241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
+    <!-- Basic page settings -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title that appears in the browser tab -->
+    <title>Vehicle Registration</title>
 
-<title>Vehicle Registration</title>
+    <!-- Website icon that appears in the browser tab -->
+    <link rel="icon" type="image/png" href="images/logo.png" />
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<link rel="stylesheet" href="style/vehicle.css">
+    <!-- Bootstrap CSS for styling and responsive layout -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-</head>
+    <!-- Bootstrap Icons library for adding icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
+    <!-- External CSS file for custom styling -->
+    <link rel="stylesheet" href="style/vehicle.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- The navigation bar helps users move between different sections of the system -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container d-flex">
+        <!-- The logo section-->
+        <img src="images/logo.png" alt="" width="60" />
 
-<!-- NAVBAR -->
+        <a class="navbar-brand fw-bold text-primary">ParkEase</a>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <!-- Navigation links -->
+        <ul class="navbar-nav mx-auto">
+          <!-- Dashboard link -->
+          <li class="nav-item">
+            <a class="nav-link" href="Dashboard.html"
+              ><i class="bi bi-speedometer2 me-2"></i>Dashboard</a
+            >
+          </li>
 
-<div class="container d-flex">
-<img src="images/logo.png" alt="" width="60">
-<a class="navbar-brand fw-bold text-primary">ParkEase</a>
+          <!-- Current page: Vehicle registration -->
+          <li class="nav-item">
+            <a
+              class="nav-link text-primary text-decoration-underline"
+              href="vehicle-register.html"
+              ><i class="bi bi-building-add me-2"></i>In-Vehicle</a
+            >
+          </li>
 
-<ul class="navbar-nav mx-auto">
-    <li class="nav-item">
-<a class="nav-link">Dashboard</a>
-</li>
+          <!-- Vehicle history page -->
+          <li class="nav-item">
+            <a class="nav-link active">
+              <i class="bi bi-clock-history me-2"></i>History</a
+            >
+          </li>
+        </ul>
 
-<li class="nav-item">
-<a class="nav-link">In-Vehicle</a>
-</li>
+        <!-- Logged in user information -->
+        <div class="d-flex align-items-center gap-2">
+          <!-- User avatar icon -->
+          <div class="avatar me-3">
+            <i class="bi bi-person-fill"></i>
+          </div>
 
-<li class="nav-item">
-<a class="nav-link">Out-Vehicle</a>
-</li>
+          <!-- User name and role -->
+          <span class="fw-semibold">Alex Mukasa</span>
+          <span>(Attendant)</span>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar ends -->
 
-<li class="nav-item">
-<a class="nav-link active">Report</a>
-</li>
+    <!-- Page title starts -->
+    <div class="container mt-4">
+      <h3 class="fw-bold">Vehicle Registration</h3>
 
-</ul>
-
-<div class="d-flex align-items-center gap-2">
- <div class="avatar me-3">
-        <i class="bi bi-person-fill"></i>
+      <p class="text-muted">
+        Register incoming vehicles for secure entry and automated billing.
+      </p>
     </div>
-<span class="fw-semibold">Alex Mukasa</span>
-<span>(Attendant)</span>
- 
-</div>
-
-</div>
-
-</nav>
-
-
-<!-- PAGE TITLE -->
-
-<div class="container mt-4">
-
-<h3 class="fw-bold">Vehicle Registration</h3>
-<p class="text-muted">
-Register incoming vehicles for secure entry and automated billing.
-</p>
-
-</div>
-
-
-
-<!-- FORM CARD -->
-
-<div class="container">
-
-<div class="card p-4 shadow-sm">
-
-<form id="vehicleForm">
-
-<!-- DRIVER INFORMATION -->
-
-<h6 class="section-title">Driver Information</h6>
-
-<div class="row">
-
-<div class="col-md-6">
-
-<label class="form-label">Driver Name</label>
-
-<input type="text"
-id="driverName"
-class="form-control"
-placeholder="Enter full name as per ID">
-
-<small class="text-muted">
-Enter full name as per ID
-</small>
-
-<div class="error" id="nameError"></div>
-
-</div>
-
-
-<div class="col-md-6">
-
-<label class="form-label">Phone Number</label>
-
-<input type="text"
-id="phone"
-class="form-control"
-placeholder="+256 700000000">
-
-<div class="error" id="phoneError"></div>
-
-</div>
-
-</div>
-
-
-<hr>
-
-
-<!-- VEHICLE INFORMATION -->
-
-<h6 class="section-title">Vehicle Information</h6>
-
-<div class="row">
-
-<div class="col-md-6">
-
-<label class="form-label">Vehicle Type</label>
-
-<select id="vehicleType" class="form-select">
-
-<option value="">Select vehicle type</option>
-<option>Truck</option>
-<option>Personal Car</option>
-<option>Taxi</option>
-<option>Coaster</option>
-<option>Boda-boda</option>
-
-</select>
-
-<div class="error" id="vehicleError"></div>
-
-</div>
-
-
-<div class="col-md-6">
-
-<label class="form-label">Number Plate</label>
-
-<div class="input-group">
-
-<span class="input-group-text">#</span>
-
-<input
-type="text"
-id="plate"
-class="form-control"
-placeholder="E.G., UBA 123X">
-
-</div>
-
-<div class="error" id="plateError"></div>
-
-</div>
-
-</div>
-
-
-<div class="mt-3">
-
-<label class="form-label">Vehicle Model & Color</label>
-
-<input
-type="text"
-id="model"
-class="form-control"
-placeholder="e.g., Toyota Harrier, Silver">
-
-</div>
-
-
-<!-- NIN -->
-
-<div class="mt-3">
-
-<label class="form-label">
-NIN Number (Required for Boda-boda)
-</label>
-
-<input
-type="text"
-id="nin"
-class="form-control"
-placeholder="CM1234567890">
-
-<div class="error" id="ninError"></div>
-
-</div>
-
-
-<!-- BUTTONS -->
-
-<div class="mt-4 d-flex gap-3">
-
-<button
-type="submit"
-class="btn btn-primary">
-
-Register & Print Receipt
-
-</button>
-
-<button
-type="reset"
-class="btn btn-outline-secondary">
-
-Clear Form
-
-</button>
-
-</div>
-
-
-</form>
-
-</div>
-
-</div>
-
-
-
-<!-- QUICK TIPS -->
-
-<div class="tips">
-
-<h6>Quick Tips</h6>
-
-<ul>
-
-<li>Use TAB to jump between fields</li>
-<li>NIN is mandatory for all motorcycles</li>
-<li>Double check the plate before printing</li>
-
-</ul>
-
-</div>
-
-
-
-<!-- FOOTER -->
-
-<footer class="footer">
-
-System Version: 2.4.0-build
-&nbsp;&nbsp; | &nbsp;&nbsp;
-Session Started at 08:45 AM
-
-</footer>
-
-
-<script src="script.js"></script>
-
-</body>
+    <!-- Title section ends -->
+
+    <!-- Vehicle registration form -->
+    <div class="container">
+      <!-- Card layout to make the form visually organized -->
+      <div class="card p-4 shadow-sm">
+        <form id="vehicleForm">
+          <!-- This section collects information about the vehicle driver -->
+
+          <h6 class="section-title">Driver Information</h6>
+
+          <div class="row">
+            <div class="col-md-6">
+              <!-- Driver name input -->
+              <label class="form-label">Driver Name</label>
+
+              <input
+                type="text"
+                id="driverName"
+                class="form-control"
+                placeholder="Enter full name as per ID"
+                required
+              />
+            </div>
+
+            <div class="col-md-6">
+              <!-- Driver phone number -->
+              <label class="form-label">Phone Number</label>
+
+              <input
+                type="text"
+                id="phone"
+                class="form-control"
+                placeholder="+256 700000000"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- This section captures details about the vehicle being registered -->
+
+          <h6 class="section-title">Vehicle Information</h6>
+
+          <div class="row">
+            <div class="col-md-6">
+              <!-- Dropdown for selecting vehicle type -->
+              <label class="form-label">Vehicle Type</label>
+
+              <select id="vehicleType" class="form-select">
+                <option value="">Select vehicle type</option>
+                <option>Truck</option>
+                <option>Personal Car</option>
+                <option>Taxi</option>
+                <option>Coaster</option>
+                <option>Boda-boda</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <!-- Vehicle number plate -->
+              <label class="form-label">Number Plate</label>
+
+              <!-- Input group used to add a symbol before the input field -->
+              <div class="input-group">
+                <span class="input-group-text">#</span>
+
+                <input
+                  type="text"
+                  id="plate"
+                  class="form-control"
+                  placeholder="E.G., UBA 123X"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Vehicle model and color information -->
+          <div class="mt-3">
+            <label class="form-label">Vehicle Model & Color</label>
+
+            <input
+              type="text"
+              id="model"
+              class="form-control"
+              placeholder="e.g., Toyota Harrier, Silver"
+              required
+            />
+          </div>
+
+          <!-- This field is required when the vehicle type is a motorcycle -->
+
+          <div class="mt-3">
+            <label class="form-label">
+              NIN Number (Required for Boda-boda)
+            </label>
+
+            <input
+              type="text"
+              id="nin"
+              class="form-control"
+              placeholder="CM1234567890"
+              required
+            />
+          </div>
+
+          <!-- Form action buttons-->
+          <!-- Buttons used to submit or reset the form -->
+
+          <div class="mt-4 d-flex gap-3">
+            <!-- Submits the form and prints a receipt  -->
+            <button type="submit" class="btn btn-primary">
+              <i class="bi bi-printer icon white me-2"></i>
+              Register & Print Receipt
+            </button>
+
+            <!-- Clears all form inputs -->
+            <button type="reset" class="btn btn-outline-secondary">
+              Clear Form
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br />
+    <!-- Form section ends -->
+
+    <!-- Quick tips section start  -->
+    <!-- Helpful instructions to guide users when filling the form -->
+
+    <div class="tips text-primary">
+      <h6>Quick Tips</h6>
+
+      <ul>
+        <li>Use TAB to jump between fields</li>
+        <li>NIN is mandatory for all motorcycles</li>
+        <li>Double check the plate before printing</li>
+      </ul>
+    </div>
+    <!-- Tips section ends -->
+
+    <!-- Footer section displaying system version and session start time -->
+
+    <footer class="footer">
+      <div class="d-flex justify-content-between">
+        <small>System Version: 2.4.0-build</small>
+        <small
+          ><i class="bi bi-speedometer me-2"></i>Session Started at 08:45
+          AM</small
+        >
+      </div>
+    </footer>
+  </body>
 </html>

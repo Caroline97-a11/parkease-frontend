@@ -1,197 +1,245 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ParkEase - Sign-out & Receipting</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sign-out & Receipting-ParkEase</title>
+    <!-- Favicon displayed in browser tab -->
+    <link rel="icon" type="image/png" href="images/logo.png" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include Bootstrap CSS for responsive layout and styling -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Include Bootstrap Icons for vector icon support -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="style/sign.css">
-</head>
-<body>
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4">
-    <div class="container-fluid">
-
+    <!-- Link to external custom CSS for additional page styling -->
+    <link rel="stylesheet" href="style/sign.css" />
+  </head>
+  <body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4">
+      <div class="container-fluid">
+        <!-- Brand logo and title -->
         <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-            <div class="logo-box me-2"><img src="images/logo.png" alt="" width="80"></div>
-            ParkEase - Sign-out & Receipting
+          <div class="logo-box me-4">
+            <img src="images/logo.png" alt="" width="80" />
+          </div>
+          ParkEase - Sign-out & Receipting
         </a>
 
+        <!-- Navigation links and user profile section -->
         <div class="ms-auto d-flex align-items-center">
+          <ul class="navbar-nav me-4">
+            <li class="nav-item">
+              <a class="nav-link" href="Dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="vehicle-register.html">In-Vehicle</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fw-semibold" href="#">Out-Vehicle</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="report.html">Reports</a>
+            </li>
+          </ul>
 
-            <ul class="navbar-nav me-4">
-                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">In-Vehicle</a></li>
-                <li class="nav-item"><a class="nav-link active fw-semibold" href="#">Out-Vehicle</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
-            </ul>
-
-            <div class="d-flex align-items-center user-box">
-                <div class="avatar-circle me-2">AM</div>
-                <div>
-                    <small class="fw-semibold d-block">Alex Mukasa</small>
-                    <small class="text-muted">ATTENDANT</small>
-                </div>
+          <!-- User profile display with initials and role -->
+          <div class="d-flex align-items-center user-box">
+            <div class="avatar-circle me-2">AM</div>
+            <div>
+              <small class="fw-semibold d-block">Alex Mukasa</small>
+              <small class="text-muted">ATTENDANT</small>
             </div>
-
+          </div>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-<div class="container my-4">
-
-    <!-- SEARCH BAR -->
-    <div class="card shadow-sm p-3 mb-4">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Receipt by ID or Plate Number (e.g. UAX 123A)">
-            <button class="btn btn-primary px-4">Search</button>
+    <!-- Main content starts -->
+    <div class="container my-4">
+      <!-- Search bar for look up for vehicles -->
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 p-3 mb-4">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search Receipt by ID or Plate Number (e.g. UAX 123A)"
+              />
+              <button class="btn btn-primary px-4">Search</button>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="row">
-
-        <!-- LEFT SECTION -->
+      <div class="row">
+        <!-- Left section for vehicle and receiver details-->
         <div class="col-lg-7">
-
-            <!-- Vehicle Details -->
-            <div class="card shadow-sm mb-4">
-                <div class="card-header bg-white fw-semibold">
-                    <i class="bi bi-truck me-2 text-primary"></i>
-                    Vehicle & Arrival Details
-                    <span class="badge bg-warning text-dark float-end">PENDING SIGN-OUT</span>
-                </div>
-
-                <div class="card-body">
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <small class="text-muted">Driver Name</small>
-                            <p class="fw-semibold mb-1">John Baptist Ssemuwemba</p>
-
-                            <small class="text-muted">Arrival Time</small>
-                            <p class="fw-semibold">24 Oct 2023, 08:45 AM</p>
-                        </div>
-
-                        <div class="col-md-6">
-                            <small class="text-muted">Vehicle Type</small>
-                            <p class="fw-semibold mb-1">Heavy Truck (T-04)</p>
-
-                            <small class="text-muted">Duration</small>
-                            <p class="fw-semibold">4 Hours 22 Minutes</p>
-                        </div>
-                    </div>
-
-                    <!-- Fee Box -->
-                    <div class="fee-box p-3 d-flex justify-content-between align-items-center">
-                        <div>
-                            <small class="text-muted">CALCULATED PARKING FEE</small>
-                            <h3 class="fw-bold text-primary mb-0">UGX 17,500</h3>
-                            <small class="text-muted">Rate Applied: UGX 4,000/hr (Truck Rate)</small>
-                        </div>
-                        <i class="bi bi-cash-stack fee-icon"></i>
-                    </div>
-                </div>
+          <!-- Vehicle details card -->
+          <div class="card shadow-sm mb-4">
+            <div class="card-header bg-white fw-semibold">
+              <i class="bi bi-truck me-2 text-primary"></i>
+              Vehicle & Arrival Details
+              <!-- Status badge indicating pending sign-out -->
+              <span class="badge bg-warning text-dark float-end"
+                >PENDING SIGN-OUT</span
+              >
             </div>
 
-            <!-- Receiver Information -->
-            <div class="card shadow-sm">
-                <div class="card-header bg-white fw-semibold">
-                    <i class="bi bi-person me-2 text-primary"></i>
-                    Receiver Information
+            <div class="card-body">
+              <div class="row mb-3">
+                <!-- Driver information -->
+                <div class="col-md-6">
+                  <small class="text-muted">Driver Name</small>
+                  <p class="fw-semibold mb-1">John Baptist Ssemuwemba</p>
+
+                  <small class="text-muted">Arrival Time</small>
+                  <p class="fw-semibold">24 Oct 2023, 08:45 AM</p>
                 </div>
 
-                <div class="card-body">
+                <!-- Vehicle type and duration -->
+                <div class="col-md-6">
+                  <small class="text-muted">Vehicle Type</small>
+                  <p class="fw-semibold mb-1">Heavy Truck (T-04)</p>
 
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label class="form-label">Receiver Full Name</label>
-                            <input type="text" class="form-control" placeholder="As shown on ID">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" placeholder="+256 700 000 000">
-                        </div>
-                    </div>
-
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <label class="form-label">NIN Number (National ID)</label>
-                            <input type="text" class="form-control" placeholder="CF12345678901A">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label class="form-label">Gender</label>
-                            <select class="form-select">
-                                <option>Select Gender</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="d-flex">
-                        <button class="btn btn-primary flex-grow-1 me-3">
-                            <i class="bi bi-check-circle me-2"></i>
-                            Confirm Payment & Sign-out
-                        </button>
-
-                        <button class="btn btn-outline-secondary">Cancel</button>
-                    </div>
-
+                  <small class="text-muted">Duration</small>
+                  <p class="fw-semibold">4 Hours 22 Minutes</p>
                 </div>
+              </div>
+
+              <!-- Fee information section -->
+              <div
+                class="fee-box p-3 d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <small class="text-muted">CALCULATED PARKING FEE</small>
+                  <h3 class="fw-bold text-primary mb-0">UGX 17,500</h3>
+                  <small class="text-muted"
+                    >Rate Applied: UGX 4,000/hr (Truck Rate)</small
+                  >
+                </div>
+                <!-- Fee icon for visual representation -->
+                <i class="bi bi-cash-stack fee-icon"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Receiver information card -->
+          <div class="card shadow-sm">
+            <div class="card-header bg-white fw-semibold">
+              <i class="bi bi-person me-2 text-primary"></i>
+              Receiver Information
             </div>
 
+            <div class="card-body">
+              <!-- Form fields for receiver details -->
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label class="form-label">Receiver Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="As shown on ID"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Phone Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="+256 700 000 000"
+                  />
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col-md-6">
+                  <label class="form-label">NIN Number (National ID)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="CF12345678901A"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Gender</label>
+                  <select class="form-select">
+                    <option>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Action buttons to confirm payment or cancel -->
+              <div class="d-flex">
+                <button class="btn btn-primary flex-grow-1 me-3">
+                  <i class="bi bi-check-circle me-2"></i>
+                  Confirm Payment & Sign-out
+                </button>
+
+                <button class="btn btn-outline-secondary">Cancel</button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- RIGHT SECTION -->
+        <!-- Right section for receipt preview-->
         <div class="col-lg-5">
+          <div class="card shadow-sm receipt-card">
+            <div class="card-body text-center">
+              <!-- Company logo -->
+              <div class="receipt-logo mb-3">
+                <img src="images/logo.png" alt="" width="60" />
+              </div>
 
-            <div class="card shadow-sm receipt-card">
-                <div class="card-body text-center">
+              <!-- Company information -->
+              <h6 class="fw-bold">PARKEASE SYSTEMS LTD</h6>
+              <small class="text-muted d-block"
+                >Plot 45, Kampala Road, Uganda</small
+              >
+              <small class="text-muted d-block mb-3">TIN: 1009876543</small>
 
-                    <div class="receipt-logo mb-3"><img src="images/logo.png" alt="" width="60"></div>
-                    <h6 class="fw-bold">PARKEASE SYSTEMS LTD</h6>
-                    <small class="text-muted d-block">Plot 45, Kampala Road, Uganda</small>
-                    <small class="text-muted d-block mb-3">TIN: 1009876543</small>
+              <hr />
 
-                    <hr>
+              <!-- Receipt details section -->
+              <div class="text-start small">
+                <p><strong>Receipt No:</strong> PE-2023-10-2445</p>
+                <p><strong>Date:</strong> 24 Oct 2023, 01:07 PM</p>
+                <p><strong>Plate No:</strong> UAX 123A</p>
+                <p><strong>Category:</strong> HEAVY TRUCK</p>
+                <p><strong>Check-in:</strong> 24 Oct, 08:45 AM</p>
+                <p><strong>Duration:</strong> 4.4 hrs @ 4,000/hr</p>
+              </div>
 
-                    <div class="text-start small">
-                        <p><strong>Receipt No:</strong> PE-2023-10-2445</p>
-                        <p><strong>Date:</strong> 24 Oct 2023, 01:07 PM</p>
-                        <p><strong>Plate No:</strong> UAX 123A</p>
-                        <p><strong>Category:</strong> HEAVY TRUCK</p>
-                        <p><strong>Check-in:</strong> 24 Oct, 08:45 AM</p>
-                        <p><strong>Duration:</strong> 4.4 hrs @ 4,000/hr</p>
-                    </div>
+              <hr />
 
-                    <hr>
+              <!-- Total fee section -->
+              <h5 class="fw-bold">TOTAL</h5>
+              <h4 class="fw-bold text-primary mb-3">UGX 17,500</h4>
 
-                    <h5 class="fw-bold">TOTAL</h5>
-                    <h4 class="fw-bold text-primary mb-3">UGX 17,500</h4>
+              <!-- QR code placeholder for verification -->
+              <div class="qr-box mb-3">
+                <i class="bi bi-qr-code fs-1"></i>
+                <p class="small text-muted mt-2">SCAN TO VERIFY</p>
+              </div>
 
-                    <div class="qr-box mb-3">
-                        <i class="bi bi-qr-code fs-1"></i>
-                        <p class="small text-muted mt-2">SCAN TO VERIFY</p>
-                    </div>
-
-                    <small class="text-muted">THANK YOU FOR USING PARKEASE!</small>
-
-                </div>
+              <!-- Thank you note -->
+              <small class="text-muted">THANK YOU FOR USING PARKEASE!</small>
             </div>
-
+          </div>
         </div>
-
+      </div>
     </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

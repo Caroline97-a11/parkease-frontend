@@ -2,7 +2,19 @@ body{
 background:#f5f7fb;
 font-family:Arial, Helvetica, sans-serif;
 }
-
+.container{
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+h3{
+    text-align: center;
+    color: blue;
+}
+p{
+    text-align: center;
+    color: grey;
+}
 
 .section-title{
 font-weight:600;
@@ -10,17 +22,10 @@ color:#2c3e50;
 margin-bottom:15px;
 }
 
-
-.error{
-color:red;
-font-size:13px;
-}
-
-
 .tips{
 position:fixed;
-right:20px;
-bottom:80px;
+right:30px;
+bottom:50px;
 background:#eef4ff;
 padding:15px;
 width:220px;

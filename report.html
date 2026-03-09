@@ -1,130 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>ParkEase - Daily Reports</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Daily Reports ParkEase</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style/report.css">
-</head>
-<body>
+    <!-- Logo in browser tab -->
+    <link rel="icon" type="image/png" href="images/logo.png" />
 
-<!-- HEADER -->
-<nav class="navbar navbar-light bg-white shadow-sm px-4 d-flex">
-    <div>
-        <img src="images/logo.png" alt="" width="80">
-        <h5 class="mb-0 fw-bold text-primary">ParkEase</h5>
-        <small class="text-muted">DAILY REPORTS</small>
-    </div>
-    <div>
-        <button class="btn btn-outline-secondary me-2">Download PDF</button>
-        <button class="btn btn-primary">Export CSV</button>
-    </div>
-</nav>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-<div class="container my-4">
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/report.css" />
+  </head>
+  <body>
+    <!-- Header section -->
+    <nav class="navbar bg-white px-4 py-3 d-flex justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <img src="images/logo.png" width="80" />
 
-    <!-- REVENUE OVERVIEW -->
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4>Revenue Overview</h4>
-        <div class="date-selector">
-            <button class="btn btn-light" onclick="changeDate(-1)">←</button>
-            <span id="selectedDate" class="mx-3 fw-bold"></span>
-            <button class="btn btn-light" onclick="changeDate(1)">→</button>
+        <div>
+          <h6 class="mb-0 fw-bold text-primary">ParkEase</h6>
+          <small class="text-muted">DAILY REPORTS</small>
         </div>
-    </div>
+      </div>
 
-    <div class="row mb-4">
+      <div>
+        <button class="btn btn-outline-secondary me-2">
+          <i class="bi bi-download me-1"></i> Download PDF
+        </button>
+
+        <button class="btn btn-primary">
+          <i class="bi bi-file-earmark-spreadsheet me-1"></i> Export CSV
+        </button>
+      </div>
+    </nav>
+
+    <div class="container my-4">
+      <!-- Revenue Overview -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+          <h4 class="fw-bold">Revenue Overview</h4>
+          <small class="text-muted"
+            >Performance for the selected operational period.</small
+          >
+        </div>
+
+        <div class="border rounded p-2 bg-white">
+          <i class="bi bi-chevron-left"></i>
+
+          <span class="mx-3 fw-bold">October 25, 2023</span>
+
+          <i class="bi bi-chevron-right"></i>
+        </div>
+      </div>
+
+      <!-- Revenue Cards -->
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <div class="card metric-card">
+            <div
+              class="card-body d-flex justify-content-between align-items-center"
+            >
+              <div>
+                <h6>Parking Revenue</h6>
+                <h4>$1,240.00</h4>
+                <small class="text-success">+12%</small>
+              </div>
+
+              <i class="bi bi-car-front fs-2 text-muted"></i>
+            </div>
+          </div>
+        </div>
 
         <div class="col-md-4">
-            <div class="card metric-card">
-                <div class="card-body">
-                    <h6>Parking Revenue</h6>
-                    <h4>$1,240.00</h4>
-                    <small class="text-success">+12% vs yesterday</small>
-                </div>
+          <div class="card metric-card">
+            <div
+              class="card-body d-flex justify-content-between align-items-center"
+            >
+              <div>
+                <h6>Tyre Clinic</h6>
+                <h4>$450.00</h4>
+                <small class="text-success">+5.4%</small>
+              </div>
+
+              <i class="bi bi-wrench fs-2 text-muted"></i>
             </div>
+          </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card metric-card">
-                <div class="card-body">
-                    <h6>Tyre Clinic</h6>
-                    <h4>$450.00</h4>
-                    <small class="text-success">+5.4%</small>
-                </div>
+          <div class="card metric-card">
+            <div
+              class="card-body d-flex justify-content-between align-items-center"
+            >
+              <div>
+                <h6>Battery Hire</h6>
+                <h4>$180.00</h4>
+                <small class="text-danger">-2.1%</small>
+              </div>
+
+              <i class="bi bi-battery-half fs-2 text-muted"></i>
             </div>
+          </div>
         </div>
+      </div>
 
-        <div class="col-md-4">
-            <div class="card metric-card">
-                <div class="card-body">
-                    <h6>Battery Hire</h6>
-                    <h4>$180.00</h4>
-                    <small class="text-danger">-2.1%</small>
-                </div>
-            </div>
-        </div>
+      <!-- Signed-out Vehicles Table -->
 
-    </div>
+      <div class="card">
+        <div
+          class="card-header bg-white d-flex justify-content-between align-items-center"
+        >
+          <strong>All Signed-out Vehicles</strong>
 
-    <!-- TABLE -->
-    <div class="card">
-        <div class="card-header d-flex justify-content-between">
-            <strong>All Signed-out Vehicles</strong>
-            <input type="text" id="searchInput" class="form-control w-25"
-                   placeholder="Search plate or receipt..."
-                   onkeyup="filterTable()">
+          <input
+            type="text"
+            class="form-control w-25"
+            placeholder="Search plate or receipt..."
+          />
         </div>
 
         <div class="table-responsive">
-            <table class="table table-hover mb-0" id="vehicleTable">
-                <thead class="table-light">
-                <tr>
-                    <th>Receipt #</th>
-                    <th>Plate #</th>
-                    <th>In-Time</th>
-                    <th>Out-Time</th>
-                    <th>Duration</th>
-                    <th>Fee</th>
-                </tr>
-                </thead>
-                <tbody id="tableBody">
-                   <tr>
-                            <td>10:45 AM</td>
-                            <td><strong>UBD 123X</strong></td>
-                            <td>Sedan</td>
-                            <td><span class="badge bg-success-subtle text-success">Parked</span></td>
-                            <td><i class="bi bi-three-dots-vertical"></i></td>
-                        </tr>
-                </tbody>
-                
-            </table>
+          <table class="table table-hover mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>Receipt #</th>
+                <th>Plate #</th>
+                <th>In-Time</th>
+                <th>Out-Time</th>
+                <th>Duration</th>
+                <th>Fee</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>#PE-98231</td>
+                <td>KAA 123X</td>
+                <td>08:15 AM</td>
+                <td>05:30 PM</td>
+                <td>9h 15m</td>
+                <td>$15.00</td>
+              </tr>
+
+              <tr>
+                <td>#PE-98232</td>
+                <td>KCB 776L</td>
+                <td>09:00 AM</td>
+                <td>11:30 AM</td>
+                <td>2h 30m</td>
+                <td>$5.00</td>
+              </tr>
+
+              <tr>
+                <td>#PE-98233</td>
+                <td>KDD 001A</td>
+                <td>07:45 AM</td>
+                <td>06:15 PM</td>
+                <td>10h 30m</td>
+                <td>$12.50</td>
+              </tr>
+
+              <tr>
+                <td>#PE-98234</td>
+                <td>KBA 999Z</td>
+                <td>11:20 AM</td>
+                <td>02:45 PM</td>
+                <td>3h 25m</td>
+                <td>$8.00</td>
+              </tr>
+
+              <tr>
+                <td>#PE-98235</td>
+                <td>KBX 442W</td>
+                <td>06:00 AM</td>
+                <td>08:00 PM</td>
+                <td>14h 00m</td>
+                <td>$25.00</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="card-footer d-flex justify-content-between align-items-center">
-            <div>
-                <strong>Daily Grand Total:</strong>
-                <span id="grandTotal" class="text-primary fw-bold"></span>
-            </div>
+        <!-- Table footer -->
 
-            <div>
-                <button class="btn btn-sm btn-light" onclick="changePage(-1)">Previous</button>
-                <span id="paginationNumbers"></span>
-                <button class="btn btn-sm btn-light" onclick="changePage(1)">Next</button>
-            </div>
+        <div
+          class="card-footer bg-white d-flex justify-content-between align-items-center"
+        >
+          <div>
+            <strong>Daily Grand Total:</strong>
+            <span class="text-primary fw-bold">$1,870.00</span>
+          </div>
+
+          <div>
+            <button class="btn btn-sm btn-light">Previous</button>
+
+            <button class="btn btn-sm btn-primary">1</button>
+            <button class="btn btn-sm btn-light">2</button>
+            <button class="btn btn-sm btn-light">3</button>
+
+            <button class="btn btn-sm btn-light">Next</button>
+          </div>
         </div>
+      </div>
     </div>
 
-</div>
+    <!-- Footer -->
 
-<!-- FOOTER -->
-<footer class="text-center mt-5 mb-3">
-    <small class="fw-bold">ADMIN CONTROL PANEL</small><br>
-    <small>© 2026 ParkEase Intelligent Systems. All financial data is encrypted and audited.</small>
-</footer>
+    <footer class="text-center mt-5">
+      <strong>ADMIN CONTROL PANEL</strong><br />
 
-<script src="admin.js"></script>
-</body>
+      <small
+        >© 2026 ParkEase Intelligent Systems. All financial data is encrypted
+        and audited.</small
+      >
+    </footer>
+  </body>
 </html>

@@ -1,5 +1,5 @@
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
     background-color: #f4f6f9;
     margin: 0;
 }
@@ -11,7 +11,7 @@ body {
 /* SIDEBAR */
 .sidebar {
     width: 250px;
-    background: #1e3a8a;
+    background: rgb(202, 203, 203);
     min-height: 100vh;
     padding: 25px;
 }
@@ -26,15 +26,15 @@ body {
 }
 
 .nav-link {
-    color: #cbd5e1;
+    color: black;
     padding: 10px;
     border-radius: 8px;
 }
 
 .nav-link.active,
 .nav-link:hover {
-    background-color: #2563eb;
-    color: white;
+    background-color: #ffffff;
+    color: blue;
 }
 
 .user {
@@ -63,12 +63,11 @@ body {
 .user-name {
     font-size: 14px;
     font-weight: 600;
-    color: #ffffff;
 }
 
 .user-role {
     font-size: 12px;
-    color: #d1d5db;
+    color: white;
 }
 
 /* MAIN */
